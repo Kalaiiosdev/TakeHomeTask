@@ -7,23 +7,26 @@
 
 import UIKit
 
-class UserProfileDetailViewController: UIViewController {
-
+class UserProfileViewController: UIViewController {
+    var username: String = ""
+    private let viewModel = UserProfileViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Fetch profile
+        viewModel.fetchProfile(username: username)
+       
+        // Bind ViewModel
+        viewModel.onProfileUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                
+            }
+        }
+        
+        viewModel.onError = { error in
+            // Handle error
+        }
+        
+       
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

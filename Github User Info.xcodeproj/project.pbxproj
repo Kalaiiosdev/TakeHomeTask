@@ -17,6 +17,17 @@
 		211A35522C257DE600176C5D /* Github_User_InfoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A35512C257DE600176C5D /* Github_User_InfoUITests.swift */; };
 		211A35542C257DE600176C5D /* Github_User_InfoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A35532C257DE600176C5D /* Github_User_InfoUITestsLaunchTests.swift */; };
 		218E7BCE2C2580E100CAA2AE /* UserProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BCD2C2580E100CAA2AE /* UserProfileDetailViewController.swift */; };
+		218E7BD12C25883100CAA2AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BD02C25883100CAA2AE /* User.swift */; };
+		218E7BD32C25884E00CAA2AE /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BD22C25884E00CAA2AE /* Profile.swift */; };
+		218E7BD52C25890100CAA2AE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BD42C25890100CAA2AE /* NetworkManager.swift */; };
+		218E7BD72C258B4B00CAA2AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BD62C258B4B00CAA2AE /* CoreDataManager.swift */; };
+		218E7BD92C258CA900CAA2AE /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BD82C258CA900CAA2AE /* UserListViewModel.swift */; };
+		218E7BDB2C258CF400CAA2AE /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BDA2C258CF400CAA2AE /* UserProfileViewModel.swift */; };
+		21D3B99D2C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */; };
+		21D3B99E2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */; };
+		21D3B99F2C26AA92000FE264 /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */; };
+		21D3B9A02C26AA92000FE264 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B99C2C26AA92000FE264 /* UserEntity+CoreDataProperties.swift */; };
+		21D3B9A22C26AEEA000FE264 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B9A12C26AEEA000FE264 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +54,7 @@
 		211A35312C257DE200176C5D /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		211A35372C257DE200176C5D /* Github_User_Info.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Github_User_Info.xcdatamodel; sourceTree = "<group>"; };
 		211A35392C257DE500176C5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		211A353C2C257DE500176C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/main.storyboard; sourceTree = "<group>"; };
+		211A353C2C257DE500176C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		211A353E2C257DE500176C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		211A35432C257DE600176C5D /* Github User InfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Github User InfoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		211A35472C257DE600176C5D /* Github_User_InfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_User_InfoTests.swift; sourceTree = "<group>"; };
@@ -51,6 +62,17 @@
 		211A35512C257DE600176C5D /* Github_User_InfoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_User_InfoUITests.swift; sourceTree = "<group>"; };
 		211A35532C257DE600176C5D /* Github_User_InfoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_User_InfoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		218E7BCD2C2580E100CAA2AE /* UserProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDetailViewController.swift; sourceTree = "<group>"; };
+		218E7BD02C25883100CAA2AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		218E7BD22C25884E00CAA2AE /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		218E7BD42C25890100CAA2AE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		218E7BD62C258B4B00CAA2AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		218E7BD82C258CA900CAA2AE /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		218E7BDA2C258CF400CAA2AE /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileEntity+CoreDataClass.swift"; path = "DataModels/ProfileEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileEntity+CoreDataProperties.swift"; path = "DataModels/ProfileEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataClass.swift"; path = "DataModels/UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		21D3B99C2C26AA92000FE264 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataProperties.swift"; path = "DataModels/UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		21D3B9A12C26AEEA000FE264 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +166,8 @@
 		211A35612C257FB800176C5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				218E7BD02C25883100CAA2AE /* User.swift */,
+				218E7BD22C25884E00CAA2AE /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +175,8 @@
 		211A35622C257FCD00176C5D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				218E7BD82C258CA900CAA2AE /* UserListViewModel.swift */,
+				218E7BDA2C258CF400CAA2AE /* UserProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -158,7 +184,7 @@
 		211A35632C257FEF00176C5D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				211A353B2C257DE500176C5D /* main.storyboard */,
+				211A353B2C257DE500176C5D /* Main.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -166,6 +192,11 @@
 		218E7BCC2C25808100CAA2AE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */,
+				21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */,
+				21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */,
+				21D3B99C2C26AA92000FE264 /* UserEntity+CoreDataProperties.swift */,
+				218E7BD62C258B4B00CAA2AE /* CoreDataManager.swift */,
 				211A35362C257DE200176C5D /* Github_User_Info.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -174,6 +205,8 @@
 		218E7BCF2C25835400CAA2AE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				218E7BD42C25890100CAA2AE /* NetworkManager.swift */,
+				21D3B9A12C26AEEA000FE264 /* Reachability.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -310,9 +343,20 @@
 			files = (
 				211A35322C257DE200176C5D /* UserListViewController.swift in Sources */,
 				218E7BCE2C2580E100CAA2AE /* UserProfileDetailViewController.swift in Sources */,
+				218E7BD12C25883100CAA2AE /* User.swift in Sources */,
+				218E7BD32C25884E00CAA2AE /* Profile.swift in Sources */,
+				218E7BD52C25890100CAA2AE /* NetworkManager.swift in Sources */,
+				218E7BDB2C258CF400CAA2AE /* UserProfileViewModel.swift in Sources */,
+				21D3B99D2C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift in Sources */,
+				21D3B99E2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift in Sources */,
+				21D3B99F2C26AA92000FE264 /* UserEntity+CoreDataClass.swift in Sources */,
+				21D3B9A02C26AA92000FE264 /* UserEntity+CoreDataProperties.swift in Sources */,
 				211A35382C257DE200176C5D /* Github_User_Info.xcdatamodeld in Sources */,
+				218E7BD72C258B4B00CAA2AE /* CoreDataManager.swift in Sources */,
 				211A352E2C257DE200176C5D /* AppDelegate.swift in Sources */,
 				211A35302C257DE200176C5D /* SceneDelegate.swift in Sources */,
+				21D3B9A22C26AEEA000FE264 /* Reachability.swift in Sources */,
+				218E7BD92C258CA900CAA2AE /* UserListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,12 +393,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		211A353B2C257DE500176C5D /* main.storyboard */ = {
+		211A353B2C257DE500176C5D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				211A353C2C257DE500176C5D /* Base */,
 			);
-			name = main.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -8,12 +8,22 @@
 import UIKit
 
 class UserListViewController: UIViewController {
-
+    private let viewModel = UserListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Fetch users
+        viewModel.fetchUsers()
+       
+        // Bind ViewModel
+        viewModel.onUsersUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                // Reload your table view or collection view here
+            }
+        }
+        
+        viewModel.onError = { error in
+            // Handle error
+        }
     }
-
-
 }
-
