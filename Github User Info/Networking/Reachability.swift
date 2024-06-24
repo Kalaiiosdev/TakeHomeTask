@@ -13,7 +13,7 @@ class Reachability {
     }
 
     func isConnected() -> Bool {
-        return monitor.currentPath.status == .satisfied
+        return true//monitor.currentPath.status == .satisfied
     }
 
     func setReachabilityChangedHandler(_ handler: @escaping (Bool) -> Void) {

@@ -23,6 +23,11 @@
 		218E7BD72C258B4B00CAA2AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BD62C258B4B00CAA2AE /* CoreDataManager.swift */; };
 		218E7BD92C258CA900CAA2AE /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BD82C258CA900CAA2AE /* UserListViewModel.swift */; };
 		218E7BDB2C258CF400CAA2AE /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E7BDA2C258CF400CAA2AE /* UserProfileViewModel.swift */; };
+		21AC59862C297532008F79CC /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC59842C297532008F79CC /* UserTableViewCell.swift */; };
+		21AC59872C297532008F79CC /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AC59852C297532008F79CC /* UserTableViewCell.xib */; };
+		21AC598A2C29A3B5008F79CC /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC59892C29A3B5008F79CC /* ImageDownloader.swift */; };
+		21AC598C2C29A3E0008F79CC /* ImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC598B2C29A3DF008F79CC /* ImageDownloadOperation.swift */; };
+		21AC598E2C29A3FA008F79CC /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC598D2C29A3FA008F79CC /* ImageCache.swift */; };
 		21D3B99D2C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */; };
 		21D3B99E2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */; };
 		21D3B99F2C26AA92000FE264 /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */; };
@@ -68,6 +73,11 @@
 		218E7BD62C258B4B00CAA2AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		218E7BD82C258CA900CAA2AE /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		218E7BDA2C258CF400CAA2AE /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		21AC59842C297532008F79CC /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		21AC59852C297532008F79CC /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		21AC59892C29A3B5008F79CC /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		21AC598B2C29A3DF008F79CC /* ImageDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadOperation.swift; sourceTree = "<group>"; };
+		21AC598D2C29A3FA008F79CC /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileEntity+CoreDataClass.swift"; path = "DataModels/ProfileEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileEntity+CoreDataProperties.swift"; path = "DataModels/ProfileEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataClass.swift"; path = "DataModels/UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -159,6 +169,8 @@
 			children = (
 				211A35312C257DE200176C5D /* UserListViewController.swift */,
 				218E7BCD2C2580E100CAA2AE /* UserProfileDetailViewController.swift */,
+				21AC59842C297532008F79CC /* UserTableViewCell.swift */,
+				21AC59852C297532008F79CC /* UserTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,10 +217,21 @@
 		218E7BCF2C25835400CAA2AE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				21AC59882C29A38B008F79CC /* ImageCache */,
 				218E7BD42C25890100CAA2AE /* NetworkManager.swift */,
 				21D3B9A12C26AEEA000FE264 /* Reachability.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		21AC59882C29A38B008F79CC /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				21AC59892C29A3B5008F79CC /* ImageDownloader.swift */,
+				21AC598B2C29A3DF008F79CC /* ImageDownloadOperation.swift */,
+				21AC598D2C29A3FA008F79CC /* ImageCache.swift */,
+			);
+			path = ImageCache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				211A353A2C257DE500176C5D /* Assets.xcassets in Resources */,
+				21AC59872C297532008F79CC /* UserTableViewCell.xib in Resources */,
 				211A353D2C257DE500176C5D /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +367,7 @@
 			files = (
 				211A35322C257DE200176C5D /* UserListViewController.swift in Sources */,
 				218E7BCE2C2580E100CAA2AE /* UserProfileDetailViewController.swift in Sources */,
+				21AC598C2C29A3E0008F79CC /* ImageDownloadOperation.swift in Sources */,
 				218E7BD12C25883100CAA2AE /* User.swift in Sources */,
 				218E7BD32C25884E00CAA2AE /* Profile.swift in Sources */,
 				218E7BD52C25890100CAA2AE /* NetworkManager.swift in Sources */,
@@ -350,12 +375,15 @@
 				21D3B99D2C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift in Sources */,
 				21D3B99E2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift in Sources */,
 				21D3B99F2C26AA92000FE264 /* UserEntity+CoreDataClass.swift in Sources */,
+				21AC598E2C29A3FA008F79CC /* ImageCache.swift in Sources */,
 				21D3B9A02C26AA92000FE264 /* UserEntity+CoreDataProperties.swift in Sources */,
 				211A35382C257DE200176C5D /* Github_User_Info.xcdatamodeld in Sources */,
 				218E7BD72C258B4B00CAA2AE /* CoreDataManager.swift in Sources */,
 				211A352E2C257DE200176C5D /* AppDelegate.swift in Sources */,
 				211A35302C257DE200176C5D /* SceneDelegate.swift in Sources */,
 				21D3B9A22C26AEEA000FE264 /* Reachability.swift in Sources */,
+				21AC59862C297532008F79CC /* UserTableViewCell.swift in Sources */,
+				21AC598A2C29A3B5008F79CC /* ImageDownloader.swift in Sources */,
 				218E7BD92C258CA900CAA2AE /* UserListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,6 +566,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,6 +595,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

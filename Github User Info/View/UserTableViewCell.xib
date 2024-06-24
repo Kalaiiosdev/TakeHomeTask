@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserTableViewCell" rowHeight="95" id="KGk-i7-Jjw" customClass="UserTableViewCell" customModule="Github_User_Info" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="336" height="95"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mv2-ww-VEQ">
+                        <rect key="frame" x="8" y="0.0" width="320" height="95"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.and.background.dotted" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wTi-VB-6hd">
+                                <rect key="frame" x="0.0" y="19" width="60" height="58.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="OZE-Yy-hAT"/>
+                                    <constraint firstAttribute="width" constant="60" id="frD-Bw-RYX"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-4X-L61">
+                                <rect key="frame" x="80" y="25.333333333333332" width="240" height="44.666666666666671"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgU-wV-wBX">
+                                        <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWu-DK-6ge">
+                                        <rect key="frame" x="0.0" y="24.333333333333336" width="50.333333333333336" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Mv2-ww-VEQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="3BI-jF-3Yk"/>
+                    <constraint firstAttribute="trailing" secondItem="Mv2-ww-VEQ" secondAttribute="trailing" constant="8" id="4V8-CJ-8Iw"/>
+                    <constraint firstItem="Mv2-ww-VEQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="A80-HL-04H"/>
+                    <constraint firstItem="Mv2-ww-VEQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="AYs-YY-eyh"/>
+                    <constraint firstAttribute="bottom" secondItem="Mv2-ww-VEQ" secondAttribute="bottom" id="fky-gw-MGl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="userDetailsLabel" destination="KWu-DK-6ge" id="auE-Bs-kQI"/>
+                <outlet property="userNameImage" destination="wTi-VB-6hd" id="NXc-FQ-6kK"/>
+                <outlet property="userNameLabel" destination="dgU-wV-wBX" id="3ns-ah-U8f"/>
+            </connections>
+            <point key="canvasLocation" x="103.81679389312977" y="36.971830985915496"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="person.and.background.dotted" catalog="system" width="128" height="101"/>
+    </resources>
+</document>

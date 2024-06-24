@@ -1,5 +1,6 @@
 import Foundation
 import CoreData
+import UIKit
 
 class UserListViewModel {
     private var users: [UserEntity] = []
@@ -47,12 +48,10 @@ class UserListViewModel {
 
         do {
             let existingUsers = try context.fetch(fetchRequest)
-
             let existingUsersMap = Dictionary(uniqueKeysWithValues: existingUsers.map { ($0.id, $0) })
 
             apiUsers.forEach { apiUser in
                 if let existingUser = existingUsersMap[Int64(apiUser.id)] {
-                    // Update existing user
                     existingUser.login = apiUser.login
                     existingUser.node_id = apiUser.node_id
                     existingUser.avatar_url = apiUser.avatar_url
@@ -71,7 +70,6 @@ class UserListViewModel {
                     existingUser.type = apiUser.type
                     existingUser.site_admin = apiUser.site_admin
                 } else {
-                    // Create new user
                     let newUser = UserEntity(context: context)
                     newUser.login = apiUser.login
                     newUser.id = Int64(apiUser.id)
@@ -107,4 +105,18 @@ class UserListViewModel {
     func user(at index: Int) -> UserEntity {
         return users[index]
     }
+    
+    func getAvatar(url: String, completion: @escaping (UIImage?) -> Void) {
+            guard let avatarURL = URL(string: url) else {
+                completion(nil)
+                return
+            }
+
+            ImageDownloader.shared.downloadImage(from: avatarURL) { image in
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
+        }
 }
+
