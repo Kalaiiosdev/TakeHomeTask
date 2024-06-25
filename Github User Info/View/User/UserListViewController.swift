@@ -40,8 +40,8 @@ extension UserListViewController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "testVC")
-        vc.navigationItem.title = viewModel.user(at: indexPath.row).login ?? ""
+        let vc = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileDetailViewController
+        vc.userName = viewModel.user(at: indexPath.row).login ?? ""
         navigationController?.pushViewController(vc, animated: true)
     }
     

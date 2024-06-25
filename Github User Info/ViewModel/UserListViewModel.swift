@@ -107,16 +107,16 @@ class UserListViewModel {
     }
     
     func getAvatar(url: String, completion: @escaping (UIImage?) -> Void) {
-            guard let avatarURL = URL(string: url) else {
-                completion(nil)
-                return
-            }
-
-            ImageDownloader.shared.downloadImage(from: avatarURL) { image in
-                DispatchQueue.main.async {
-                    completion(image)
-                }
+        guard let avatarURL = URL(string: url) else {
+            completion(nil)
+            return
+        }
+        
+        ImageDownloader.shared.downloadImage(from: avatarURL) { image in
+            DispatchQueue.main.async {
+                completion(image)
             }
         }
+    }
 }
 

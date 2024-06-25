@@ -59,14 +59,39 @@
         <!--User Profile Detail View Controller-->
         <scene sceneID="YaO-mS-Zd4">
             <objects>
-                <viewController storyboardIdentifier="testVC" id="Jme-cg-U57" customClass="UserProfileDetailViewController" customModule="Github_User_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" id="Jme-cg-U57" customClass="UserProfileDetailViewController" customModule="Github_User_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pbv-8m-zUj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vn3-ZT-Oib">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DoL-Ic-VYE">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DoL-Ic-VYE" id="wpJ-RF-ES7">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="oDT-zW-BPD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oDT-zW-BPD" firstAttribute="trailing" secondItem="vn3-ZT-Oib" secondAttribute="trailing" id="Hek-JI-WNa"/>
+                            <constraint firstItem="oDT-zW-BPD" firstAttribute="bottom" secondItem="vn3-ZT-Oib" secondAttribute="bottom" id="Tmd-63-RPF"/>
+                            <constraint firstItem="vn3-ZT-Oib" firstAttribute="top" secondItem="oDT-zW-BPD" secondAttribute="top" id="c7E-mN-5CT"/>
+                            <constraint firstItem="vn3-ZT-Oib" firstAttribute="leading" secondItem="oDT-zW-BPD" secondAttribute="leading" id="dKs-U8-ayu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="47m-0b-wFF"/>
+                    <connections>
+                        <outlet property="tableView" destination="vn3-ZT-Oib" id="81D-9G-GuE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etJ-aS-SMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

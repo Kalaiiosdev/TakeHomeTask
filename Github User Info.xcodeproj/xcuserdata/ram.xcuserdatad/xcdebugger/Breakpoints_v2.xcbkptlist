@@ -7,32 +7,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "295CE95C-1C58-4E4B-A24C-F1DC8D7FD5B2"
+            uuid = "9CA25A35-3EBD-48CE-8154-DAAC74E2E661"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Github User Info/View/UserListViewController.swift"
+            filePath = "Github User Info/ViewModel/UserProfileViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "setBioData()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9CA25A35-3EBD-48CE-8154-DAAC74E2E661 - 4d6020b4d956689f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Github_User_Info.UserProfileViewModel.setBioData() -&gt; ()"
+                  moduleName = "Github User Info"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ram/Documents/My%20Projects/Github%20User%20Info/ViewModel/UserProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134">
+               </Location>
+               <Location
+                  uuid = "9CA25A35-3EBD-48CE-8154-DAAC74E2E661 - 4d6020b4d956689f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Github_User_Info.UserProfileViewModel.setBioData() -&gt; ()"
+                  moduleName = "Github User Info"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ram/Documents/My%20Projects/Github%20User%20Info/ViewModel/UserProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B5959133-212A-4EC0-AA6C-7193A022BC58"
+            uuid = "9E460455-945B-4A9A-8BCF-B3E34972F4A9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Github User Info/View/UserListViewController.swift"
+            filePath = "Github User Info/ViewModel/UserProfileViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "setBioData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

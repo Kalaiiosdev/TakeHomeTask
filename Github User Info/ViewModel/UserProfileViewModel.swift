@@ -1,11 +1,13 @@
 import Foundation
+import UIKit
 import CoreData
 
 class UserProfileViewModel {
-    private var profile: ProfileEntity?
+    var profile: ProfileEntity?
     var onProfileUpdated: (() -> Void)?
     var onError: ((Error) -> Void)?
-
+    var profileData: [(String, String)] = []
+    
     func fetchProfile(username: String) {
         if Reachability.shared.isConnected() {
             fetchProfileFromAPI(username: username)
@@ -36,6 +38,7 @@ class UserProfileViewModel {
             let profiles = try context.fetch(fetchRequest)
             if let profile = profiles.first {
                 self.profile = profile
+                setBioData()
                 onProfileUpdated?()
             } else {
                 onError?(NSError(domain: "Profile not found in Core Data", code: -1, userInfo: nil))
@@ -101,5 +104,45 @@ class UserProfileViewModel {
 
     func getProfile() -> ProfileEntity? {
         return profile
+    }
+    
+    func getAvatar(url: String, completion: @escaping (UIImage?) -> Void) {
+        guard let avatarURL = URL(string: url) else {
+            completion(nil)
+            return
+        }
+        
+        ImageDownloader.shared.downloadImage(from: avatarURL) { image in
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
+    }
+    // Create profile data array from the UserProfile struct
+    func setBioData() {
+        var data: [(String, String)] = []
+        let profile = getProfile()
+        if let name = profile?.name {
+            data.append(("Name", name))
+        }
+        if let company = profile?.company {
+            data.append(("Company", company))
+        }
+        if let blog = profile?.blog {
+            data.append(("Blog", blog))
+        }
+        if let bio = profile?.bio {
+            data.append(("Bio", bio))
+        }
+        if let location = profile?.location {
+            data.append(("Location", location))
+        }
+        if let email = profile?.email {
+            data.append(("Email", email))
+        }
+        if let twitter = profile?.twitter_username {
+            data.append(("Twitter", twitter))
+        }
+        self.profileData = data
     }
 }

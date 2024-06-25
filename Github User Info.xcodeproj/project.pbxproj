@@ -28,6 +28,12 @@
 		21AC598A2C29A3B5008F79CC /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC59892C29A3B5008F79CC /* ImageDownloader.swift */; };
 		21AC598C2C29A3E0008F79CC /* ImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC598B2C29A3DF008F79CC /* ImageDownloadOperation.swift */; };
 		21AC598E2C29A3FA008F79CC /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC598D2C29A3FA008F79CC /* ImageCache.swift */; };
+		21AC59932C2A799C008F79CC /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AC59922C2A799C008F79CC /* ProfileTableViewCell.xib */; };
+		21AC59942C2A799C008F79CC /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC59912C2A799C008F79CC /* ProfileTableViewCell.swift */; };
+		21AC59972C2A9FBD008F79CC /* BioDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AC59962C2A9FBD008F79CC /* BioDataTableViewCell.xib */; };
+		21AC59982C2A9FBD008F79CC /* BioDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC59952C2A9FBD008F79CC /* BioDataTableViewCell.swift */; };
+		21AC599B2C2A9FE9008F79CC /* NotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AC599A2C2A9FE9008F79CC /* NotesTableViewCell.xib */; };
+		21AC599C2C2A9FE9008F79CC /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC59992C2A9FE9008F79CC /* NotesTableViewCell.swift */; };
 		21D3B99D2C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */; };
 		21D3B99E2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */; };
 		21D3B99F2C26AA92000FE264 /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */; };
@@ -78,6 +84,12 @@
 		21AC59892C29A3B5008F79CC /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		21AC598B2C29A3DF008F79CC /* ImageDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadOperation.swift; sourceTree = "<group>"; };
 		21AC598D2C29A3FA008F79CC /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		21AC59912C2A799C008F79CC /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		21AC59922C2A799C008F79CC /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		21AC59952C2A9FBD008F79CC /* BioDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioDataTableViewCell.swift; sourceTree = "<group>"; };
+		21AC59962C2A9FBD008F79CC /* BioDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BioDataTableViewCell.xib; sourceTree = "<group>"; };
+		21AC59992C2A9FE9008F79CC /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		21AC599A2C2A9FE9008F79CC /* NotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTableViewCell.xib; sourceTree = "<group>"; };
 		21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileEntity+CoreDataClass.swift"; path = "DataModels/ProfileEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileEntity+CoreDataProperties.swift"; path = "DataModels/ProfileEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataClass.swift"; path = "DataModels/UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -167,10 +179,8 @@
 		211A35602C257FAE00176C5D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				211A35312C257DE200176C5D /* UserListViewController.swift */,
-				218E7BCD2C2580E100CAA2AE /* UserProfileDetailViewController.swift */,
-				21AC59842C297532008F79CC /* UserTableViewCell.swift */,
-				21AC59852C297532008F79CC /* UserTableViewCell.xib */,
+				21AC598F2C2A791D008F79CC /* User */,
+				21AC59902C2A7952008F79CC /* Profile */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,6 +242,30 @@
 				21AC598D2C29A3FA008F79CC /* ImageCache.swift */,
 			);
 			path = ImageCache;
+			sourceTree = "<group>";
+		};
+		21AC598F2C2A791D008F79CC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				211A35312C257DE200176C5D /* UserListViewController.swift */,
+				21AC59842C297532008F79CC /* UserTableViewCell.swift */,
+				21AC59852C297532008F79CC /* UserTableViewCell.xib */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		21AC59902C2A7952008F79CC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				218E7BCD2C2580E100CAA2AE /* UserProfileDetailViewController.swift */,
+				21AC59912C2A799C008F79CC /* ProfileTableViewCell.swift */,
+				21AC59922C2A799C008F79CC /* ProfileTableViewCell.xib */,
+				21AC59962C2A9FBD008F79CC /* BioDataTableViewCell.xib */,
+				21AC59952C2A9FBD008F79CC /* BioDataTableViewCell.swift */,
+				21AC59992C2A9FE9008F79CC /* NotesTableViewCell.swift */,
+				21AC599A2C2A9FE9008F79CC /* NotesTableViewCell.xib */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,8 +373,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				211A353A2C257DE500176C5D /* Assets.xcassets in Resources */,
+				21AC59932C2A799C008F79CC /* ProfileTableViewCell.xib in Resources */,
 				21AC59872C297532008F79CC /* UserTableViewCell.xib in Resources */,
 				211A353D2C257DE500176C5D /* Base in Resources */,
+				21AC59972C2A9FBD008F79CC /* BioDataTableViewCell.xib in Resources */,
+				21AC599B2C2A9FE9008F79CC /* NotesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,10 +413,13 @@
 				21D3B99E2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift in Sources */,
 				21D3B99F2C26AA92000FE264 /* UserEntity+CoreDataClass.swift in Sources */,
 				21AC598E2C29A3FA008F79CC /* ImageCache.swift in Sources */,
+				21AC599C2C2A9FE9008F79CC /* NotesTableViewCell.swift in Sources */,
 				21D3B9A02C26AA92000FE264 /* UserEntity+CoreDataProperties.swift in Sources */,
 				211A35382C257DE200176C5D /* Github_User_Info.xcdatamodeld in Sources */,
 				218E7BD72C258B4B00CAA2AE /* CoreDataManager.swift in Sources */,
+				21AC59982C2A9FBD008F79CC /* BioDataTableViewCell.swift in Sources */,
 				211A352E2C257DE200176C5D /* AppDelegate.swift in Sources */,
+				21AC59942C2A799C008F79CC /* ProfileTableViewCell.swift in Sources */,
 				211A35302C257DE200176C5D /* SceneDelegate.swift in Sources */,
 				21D3B9A22C26AEEA000FE264 /* Reachability.swift in Sources */,
 				21AC59862C297532008F79CC /* UserTableViewCell.swift in Sources */,
