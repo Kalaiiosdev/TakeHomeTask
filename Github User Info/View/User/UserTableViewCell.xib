@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RyD-4X-L61">
-                                <rect key="frame" x="80" y="25.333333333333332" width="240" height="44.666666666666671"/>
+                                <rect key="frame" x="80" y="25.333333333333332" width="196" height="44.666666666666671"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgU-wV-wBX">
                                         <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="20.333333333333332"/>
@@ -44,6 +44,13 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CH4-Sa-Lyi">
+                                <rect key="frame" x="296" y="19.333333333333329" width="24" height="56.999999999999986"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4GI-PM-1dG"/>
+                                    <constraint firstAttribute="width" constant="24" id="eCY-Wz-HGa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                     </stackView>
                 </subviews>
@@ -57,6 +64,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="noteIcon" destination="CH4-Sa-Lyi" id="dSD-U7-tJC"/>
                 <outlet property="userDetailsLabel" destination="KWu-DK-6ge" id="auE-Bs-kQI"/>
                 <outlet property="userNameImage" destination="wTi-VB-6hd" id="NXc-FQ-6kK"/>
                 <outlet property="userNameLabel" destination="dgU-wV-wBX" id="3ns-ah-U8f"/>
@@ -65,6 +73,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="note" catalog="system" width="128" height="107"/>
         <image name="person.and.background.dotted" catalog="system" width="128" height="101"/>
     </resources>
 </document>

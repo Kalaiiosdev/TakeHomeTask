@@ -21,6 +21,9 @@ class UserListViewController: UIViewController {
         
         tableView.register(UserTableViewCell.nib(), forCellReuseIdentifier: UserTableViewCell.identifier)
             
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Fetch users
         viewModel.fetchUsers()
        

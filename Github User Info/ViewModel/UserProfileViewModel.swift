@@ -169,8 +169,24 @@ class UserProfileViewModel: AvatarDownloadable {
                 newProfile.userNote = note
             }
             CoreDataManager.shared.saveContext()
+            // Update isNoteAvailable
+            updateNotesAvailablility(userName: username)
         } catch {
             onError?(error)
+        }
+    }
+    
+    func updateNotesAvailablility(userName: String) {
+        let context = CoreDataManager.shared.context
+        
+        let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "login == %@", userName)
+        do {
+            let users = try context.fetch(fetchRequest)
+            users.first?.isNoteAvailable = true
+            try context.save()
+        } catch {
+            print("Failed to merge users: \(error)")
         }
     }
 }

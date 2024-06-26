@@ -6,6 +6,8 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userDetailsLabel: UILabel!
     
+    @IBOutlet weak var noteIcon: UIImageView!
+    
     static let identifier = "UserTableViewCell"
     
     static func nib() -> UINib {
@@ -20,6 +22,7 @@ class UserTableViewCell: UITableViewCell {
         userNameImage.clipsToBounds = true
         userNameImage.contentMode = .scaleAspectFill
         userNameImage.layer.masksToBounds = true
+        noteIcon.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,7 +35,11 @@ class UserTableViewCell: UITableViewCell {
         let user = viewModel.user(at: index)
         userNameLabel.text = user.login
         userDetailsLabel.text = user.type
-        
+        if user.isNoteAvailable {
+            noteIcon.isHidden = false
+        } else {
+            noteIcon.isHidden = true
+        }
         // Clear previous image to avoid flickering
         userNameImage.image = nil
         
