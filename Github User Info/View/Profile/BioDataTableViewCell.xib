@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NIc-HT-TUj">
-                        <rect key="frame" x="8" y="0.0" width="237" height="59"/>
+                        <rect key="frame" x="16" y="16" width="221" height="27"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dC-dT-AG2">
-                                <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="59"/>
+                                <rect key="frame" x="0.0" y="0.0" width="110.66666666666667" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9H0-Yh-3ce">
-                                <rect key="frame" x="118.66666666666669" y="0.0" width="118.33333333333331" height="59"/>
+                                <rect key="frame" x="110.66666666666669" y="0.0" width="110.33333333333331" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,16 +36,16 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="NIc-HT-TUj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="2TT-aJ-OH8"/>
-                    <constraint firstAttribute="bottom" secondItem="NIc-HT-TUj" secondAttribute="bottom" id="GmL-2o-z3X"/>
-                    <constraint firstAttribute="trailing" secondItem="NIc-HT-TUj" secondAttribute="trailing" constant="8" id="R3j-VP-0fo"/>
-                    <constraint firstItem="NIc-HT-TUj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vlr-8y-aXv"/>
+                    <constraint firstItem="NIc-HT-TUj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="2TT-aJ-OH8"/>
+                    <constraint firstAttribute="bottom" secondItem="NIc-HT-TUj" secondAttribute="bottom" constant="16" id="GmL-2o-z3X"/>
+                    <constraint firstAttribute="trailing" secondItem="NIc-HT-TUj" secondAttribute="trailing" constant="16" id="R3j-VP-0fo"/>
+                    <constraint firstItem="NIc-HT-TUj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="vlr-8y-aXv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="titleLabel" destination="2dC-dT-AG2" id="jtl-vk-TDf"/>
-                <outlet property="valueLabel" destination="9H0-Yh-3ce" id="Iq5-ro-7NT"/>
+                <outlet property="valueLabel" destination="9H0-Yh-3ce" id="Hfe-mM-Psp"/>
             </connections>
             <point key="canvasLocation" x="23.664122137404579" y="25"/>
         </tableViewCell>

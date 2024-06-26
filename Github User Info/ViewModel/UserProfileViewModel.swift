@@ -2,7 +2,28 @@ import Foundation
 import UIKit
 import CoreData
 
-class UserProfileViewModel {
+protocol AvatarDownloadable {
+    func getAvatar(url: String, completion: @escaping (UIImage?) -> Void)
+}
+protocol NotesTableViewCellDelegate: AnyObject {
+    func didUpdateNotes(_ cell: NotesTableViewCell, notes: String)
+}
+
+extension AvatarDownloadable {
+    func getAvatar(url: String, completion: @escaping (UIImage?) -> Void) {
+        guard let avatarURL = URL(string: url) else {
+            completion(nil)
+            return
+        }
+        
+        ImageDownloader.shared.downloadImage(from: avatarURL) { image in
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
+    }
+}
+class UserProfileViewModel: AvatarDownloadable {
     var profile: ProfileEntity?
     var onProfileUpdated: (() -> Void)?
     var onError: ((Error) -> Void)?
@@ -15,7 +36,7 @@ class UserProfileViewModel {
             fetchProfileFromCoreData(username: username)
         }
     }
-
+    
     private func fetchProfileFromAPI(username: String) {
         NetworkManager.shared.getProfileDetail(for: username) { [weak self] result in
             switch result {
@@ -28,12 +49,12 @@ class UserProfileViewModel {
             }
         }
     }
-
+    
     private func fetchProfileFromCoreData(username: String) {
         let context = CoreDataManager.shared.context
         let fetchRequest: NSFetchRequest<ProfileEntity> = ProfileEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "login == %@", username)
-
+        
         do {
             let profiles = try context.fetch(fetchRequest)
             if let profile = profiles.first {
@@ -47,22 +68,22 @@ class UserProfileViewModel {
             onError?(error)
         }
     }
-
+    
     private func mergeProfile(_ apiProfile: Profile) {
         let context = CoreDataManager.shared.context
         let fetchRequest: NSFetchRequest<ProfileEntity> = ProfileEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %d", apiProfile.id)
-
+        
         do {
             let profiles = try context.fetch(fetchRequest)
             let profile: ProfileEntity
-
+            
             if let existingProfile = profiles.first {
                 profile = existingProfile
             } else {
                 profile = ProfileEntity(context: context)
             }
-
+            
             profile.login = apiProfile.login
             profile.id = Int64(apiProfile.id)
             profile.node_id = apiProfile.node_id
@@ -95,29 +116,17 @@ class UserProfileViewModel {
             profile.following = Int64(apiProfile.following)
             profile.created_at = apiProfile.created_at
             profile.updated_at = apiProfile.updated_at
-
+            
             try context.save()
         } catch {
             print("Failed to merge profile: \(error)")
         }
     }
-
+    
     func getProfile() -> ProfileEntity? {
         return profile
     }
     
-    func getAvatar(url: String, completion: @escaping (UIImage?) -> Void) {
-        guard let avatarURL = URL(string: url) else {
-            completion(nil)
-            return
-        }
-        
-        ImageDownloader.shared.downloadImage(from: avatarURL) { image in
-            DispatchQueue.main.async {
-                completion(image)
-            }
-        }
-    }
     // Create profile data array from the UserProfile struct
     func setBioData() {
         var data: [(String, String)] = []
@@ -145,4 +154,24 @@ class UserProfileViewModel {
         }
         self.profileData = data
     }
+    
+    func saveNotes(username: String, note: String) {
+        let fetchRequest: NSFetchRequest<ProfileEntity> = ProfileEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "login == %@", username)
+        
+        do {
+            let results = try CoreDataManager.shared.context.fetch(fetchRequest)
+            if let profile = results.first {
+                profile.userNote = note
+            } else {
+                let newProfile = ProfileEntity(context: CoreDataManager.shared.context)
+                newProfile.login = username
+                newProfile.userNote = note
+            }
+            CoreDataManager.shared.saveContext()
+        } catch {
+            onError?(error)
+        }
+    }
 }
+

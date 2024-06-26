@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class UserListViewModel {
+class UserListViewModel: AvatarDownloadable {
     private var users: [UserEntity] = []
     var onUsersUpdated: (() -> Void)?
     var onError: ((Error) -> Void)?
@@ -104,19 +104,6 @@ class UserListViewModel {
 
     func user(at index: Int) -> UserEntity {
         return users[index]
-    }
-    
-    func getAvatar(url: String, completion: @escaping (UIImage?) -> Void) {
-        guard let avatarURL = URL(string: url) else {
-            completion(nil)
-            return
-        }
-        
-        ImageDownloader.shared.downloadImage(from: avatarURL) { image in
-            DispatchQueue.main.async {
-                completion(image)
-            }
-        }
     }
 }
 

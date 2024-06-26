@@ -7,7 +7,8 @@
 
 import UIKit
 
-class UserProfileDetailViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class UserProfileDetailViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, NotesTableViewCellDelegate {
+    
     
     private let viewModel = UserProfileViewModel()
     var userName: String?
@@ -36,7 +37,24 @@ class UserProfileDetailViewController: UIViewController,UITableViewDataSource,UI
         viewModel.onError = { error in
             // Handle error
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    @objc func keyboardWillShow(notification: Notification) {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                let keyboardHeight = keyboardSize.height
+                let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+                tableView.contentInset = contentInsets
+                tableView.scrollIndicatorInsets = contentInsets
+            }
+        }
+
+        @objc func keyboardWillHide(notification: Notification) {
+            let contentInsets = UIEdgeInsets.zero
+            tableView.contentInset = contentInsets
+            tableView.scrollIndicatorInsets = contentInsets
+        }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -63,29 +81,27 @@ class UserProfileDetailViewController: UIViewController,UITableViewDataSource,UI
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: NotesTableViewCell.identifier, for: indexPath) as! NotesTableViewCell
-            //cell.configure(with: viewModel)
+            cell.delegate = self
+            cell.configure(with: viewModel.profile?.userNote ?? "")
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 168
-        }else if indexPath.section == 1{
-            return 48
-        }else {
+        if indexPath.section == 1{
             return 64
+        }else if indexPath.section == 2{
+            return 240
+        }else {
+            return 168
         }
     }
+    
+    func didUpdateNotes(_ cell: NotesTableViewCell, notes: String) {
+        // Update the view model with the new notes
+        if let username = userName {
+            viewModel.saveNotes(username: username, note: notes)
+        }
+            
+    }
 }
-
-//  "name": "Chris Wanstrath",
-//  "company": null,
-//  "blog": "http://chriswanstrath.com/",
-//  "location": null,
-//  "email": null,
-//  "hireable": null,
-//  "bio": "🍔",
-//  "twitter_username": null,
-//  "public_repos": 107,
-//  "public_gists": 274,

@@ -33,6 +33,7 @@
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="updated_at" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="userNote" optional="YES" attributeType="String"/>
     </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
         <attribute name="avatar_url" optional="YES" attributeType="String"/>
