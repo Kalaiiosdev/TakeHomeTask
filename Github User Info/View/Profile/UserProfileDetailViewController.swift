@@ -101,7 +101,14 @@ class UserProfileDetailViewController: UIViewController,UITableViewDataSource,UI
         // Update the view model with the new notes
         if let username = userName {
             viewModel.saveNotes(username: username, note: notes)
+            showNotesSavedAlert()
         }
-            
+    }
+    
+    func showNotesSavedAlert() {
+        let alertController = UIAlertController(title: "Success", message: "Your notes have been saved.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

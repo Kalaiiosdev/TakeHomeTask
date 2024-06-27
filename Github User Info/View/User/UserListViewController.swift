@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class UserListViewController: UIViewController {
     private let viewModel = UserListViewModel()
@@ -13,11 +14,15 @@ class UserListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
         
         tableView.register(UserTableViewCell.nib(), forCellReuseIdentifier: UserTableViewCell.identifier)
             
@@ -61,5 +66,20 @@ extension UserListViewController: UITableViewDataSource,UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+}
+
+extension UserListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.searchUsers(searchText: searchBar.text ?? "")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            viewModel.fetchUsers()
+        } else {
+            viewModel.searchUsers(searchText: searchText)
+        }
     }
 }

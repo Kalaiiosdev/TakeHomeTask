@@ -175,7 +175,6 @@ class UserProfileViewModel: AvatarDownloadable {
             onError?(error)
         }
     }
-    
     func updateNotesAvailablility(userName: String) {
         let context = CoreDataManager.shared.context
         

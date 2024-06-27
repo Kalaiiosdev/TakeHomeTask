@@ -3,7 +3,7 @@ import CoreData
 import UIKit
 
 class UserListViewModel: AvatarDownloadable {
-    private var users: [UserEntity] = []
+    var users: [UserEntity] = []
     var onUsersUpdated: (() -> Void)?
     var onError: ((Error) -> Void)?
 
@@ -31,6 +31,8 @@ class UserListViewModel: AvatarDownloadable {
     private func fetchUsersFromCoreData() {
         let context = CoreDataManager.shared.context
         let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "login", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
 
         do {
             users = try context.fetch(fetchRequest)
@@ -97,13 +99,34 @@ class UserListViewModel: AvatarDownloadable {
             print("Failed to merge users: \(error)")
         }
     }
+    
+    func searchUsers(searchText: String) {
+        let request: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+        let predicate = NSPredicate(format: "login CONTAINS[cd] %@", searchText)
+        request.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "login", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))
+        request.sortDescriptors = [sortDescriptor]
+        let context = CoreDataManager.shared.context
+        do {
+            users.removeAll()
+            users = try context.fetch(request)
+            onUsersUpdated?()
+        } catch {
+            onError?(error)
+        }
+    }
 
+   
     func numberOfUsers() -> Int {
         return users.count
     }
 
     func user(at index: Int) -> UserEntity {
         return users[index]
+    }
+    
+    func numberOfUsersFilterd() -> Int {
+        return users.count
     }
 }
 
