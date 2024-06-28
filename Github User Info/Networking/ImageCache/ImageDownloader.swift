@@ -5,7 +5,7 @@ class ImageDownloader {
 
     private let operationQueue: OperationQueue = {
         let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 5 // Adjust based on your needs
+        queue.maxConcurrentOperationCount = 5
         return queue
     }()
 

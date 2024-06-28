@@ -1,33 +1,56 @@
-import Foundation
 import CoreData
-import UIKit
-
 class UserListViewModel: AvatarDownloadable {
     var users: [UserEntity] = []
     var onUsersUpdated: (() -> Void)?
     var onError: ((Error) -> Void)?
-
-    func fetchUsers() {
+    private var isFetching: Bool = false
+    private var since: Int = 0
+    private var pageSize: Int = 0
+    
+    // Fetch users from API or Core Data based on connectivity
+    func fetchUsers(reset: Bool = false) {
+        if reset {
+            since = 0
+            pageSize = 0
+            users.removeAll()
+        }
+        
         if Reachability.shared.isConnected() {
             fetchUsersFromAPI()
         } else {
             fetchUsersFromCoreData()
         }
     }
-
+    // Fetch users from API and merge them with Core Data
     private func fetchUsersFromAPI() {
-        NetworkManager.shared.getUserList { [weak self] result in
+        guard !isFetching else { return }
+        isFetching = true
+        
+        NetworkManager.shared.getUserList(since: since) { [weak self] result in
+            guard let self = self else { return }
+            self.isFetching = false
+            
             switch result {
             case .success(let apiUsers):
-                self?.mergeUsers(apiUsers)
-                self?.fetchUsersFromCoreData()
+                self.mergeUsers(apiUsers)
+                self.fetchUsersFromCoreData()
+                
+                if self.pageSize == 0 {
+                    self.pageSize = apiUsers.count
+                }
+                
+                if let lastUser = apiUsers.last {
+                    self.since = lastUser.id
+                }
+                
             case .failure(let error):
-                self?.onError?(error)
-                self?.fetchUsersFromCoreData()
+                self.onError?(error)
+                self.fetchUsersFromCoreData()
             }
         }
     }
-
+    
+    // Fetch users from Core Data
     private func fetchUsersFromCoreData() {
         let context = CoreDataManager.shared.context
         let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
@@ -41,7 +64,8 @@ class UserListViewModel: AvatarDownloadable {
             onError?(error)
         }
     }
-
+    
+    // Merge API users with Core Data
     private func mergeUsers(_ apiUsers: [User]) {
         let context = CoreDataManager.shared.context
 
@@ -100,6 +124,7 @@ class UserListViewModel: AvatarDownloadable {
         }
     }
     
+    // Search users based on login
     func searchUsers(searchText: String) {
         let request: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
         let predicate = NSPredicate(format: "login CONTAINS[cd] %@", searchText)
@@ -108,24 +133,25 @@ class UserListViewModel: AvatarDownloadable {
         request.sortDescriptors = [sortDescriptor]
         let context = CoreDataManager.shared.context
         do {
-            users.removeAll()
             users = try context.fetch(request)
             onUsersUpdated?()
         } catch {
             onError?(error)
         }
     }
-
    
+    // Return the number of users
     func numberOfUsers() -> Int {
         return users.count
     }
 
+    // Return the user at a specific index
     func user(at index: Int) -> UserEntity {
         return users[index]
     }
     
-    func numberOfUsersFilterd() -> Int {
+    // Return the number of filtered users (if any filtering is applied)
+    func numberOfUsersFiltered() -> Int {
         return users.count
     }
 }

@@ -2,13 +2,17 @@ import Foundation
 import UIKit
 import CoreData
 
+// Protocol to handle avatar downloading
 protocol AvatarDownloadable {
     func getAvatar(url: String, completion: @escaping (UIImage?) -> Void)
 }
+
+// Protocol to handle notes update
 protocol NotesTableViewCellDelegate: AnyObject {
     func didUpdateNotes(_ cell: NotesTableViewCell, notes: String)
 }
 
+// Extension to provide default implementation for downloading avatars
 extension AvatarDownloadable {
     func getAvatar(url: String, completion: @escaping (UIImage?) -> Void) {
         guard let avatarURL = URL(string: url) else {
@@ -23,12 +27,15 @@ extension AvatarDownloadable {
         }
     }
 }
+
+// ViewModel for user profile
 class UserProfileViewModel: AvatarDownloadable {
     var profile: ProfileEntity?
     var onProfileUpdated: (() -> Void)?
     var onError: ((Error) -> Void)?
     var profileData: [(String, String)] = []
     
+    // Fetch profile from API or Core Data
     func fetchProfile(username: String) {
         if Reachability.shared.isConnected() {
             fetchProfileFromAPI(username: username)
@@ -37,6 +44,7 @@ class UserProfileViewModel: AvatarDownloadable {
         }
     }
     
+    // Fetch profile from API and merge with Core Data
     private func fetchProfileFromAPI(username: String) {
         NetworkManager.shared.getProfileDetail(for: username) { [weak self] result in
             switch result {
@@ -50,6 +58,7 @@ class UserProfileViewModel: AvatarDownloadable {
         }
     }
     
+    // Fetch profile from Core Data
     private func fetchProfileFromCoreData(username: String) {
         let context = CoreDataManager.shared.context
         let fetchRequest: NSFetchRequest<ProfileEntity> = ProfileEntity.fetchRequest()
@@ -69,6 +78,7 @@ class UserProfileViewModel: AvatarDownloadable {
         }
     }
     
+    // Merge API profile with Core Data
     private func mergeProfile(_ apiProfile: Profile) {
         let context = CoreDataManager.shared.context
         let fetchRequest: NSFetchRequest<ProfileEntity> = ProfileEntity.fetchRequest()
@@ -123,6 +133,7 @@ class UserProfileViewModel: AvatarDownloadable {
         }
     }
     
+    // Get the current profile
     func getProfile() -> ProfileEntity? {
         return profile
     }
@@ -155,6 +166,7 @@ class UserProfileViewModel: AvatarDownloadable {
         self.profileData = data
     }
     
+    // Save notes for the user and update availability
     func saveNotes(username: String, note: String) {
         let fetchRequest: NSFetchRequest<ProfileEntity> = ProfileEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "login == %@", username)
@@ -175,6 +187,8 @@ class UserProfileViewModel: AvatarDownloadable {
             onError?(error)
         }
     }
+    
+    // Update the note availability for a user
     func updateNotesAvailablility(userName: String) {
         let context = CoreDataManager.shared.context
         

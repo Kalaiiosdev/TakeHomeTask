@@ -1,10 +1,3 @@
-//
-//  ProfileTableViewCell.swift
-//  Github User Info
-//
-//  Created by Ram on 25/06/24.
-//
-
 import UIKit
 
 class ProfileTableViewCell: UITableViewCell {

@@ -90,10 +90,10 @@
 		21AC59962C2A9FBD008F79CC /* BioDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BioDataTableViewCell.xib; sourceTree = "<group>"; };
 		21AC59992C2A9FE9008F79CC /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		21AC599A2C2A9FE9008F79CC /* NotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTableViewCell.xib; sourceTree = "<group>"; };
-		21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileEntity+CoreDataClass.swift"; path = "DataModels/ProfileEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileEntity+CoreDataProperties.swift"; path = "DataModels/ProfileEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataClass.swift"; path = "DataModels/UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		21D3B99C2C26AA92000FE264 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataProperties.swift"; path = "DataModels/UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		21D3B99C2C26AA92000FE264 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		21D3B9A12C26AEEA000FE264 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,13 +211,65 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		218E7BCC2C25808100CAA2AE /* CoreData */ = {
+		2126C91B2C2D4206004CE86E /* ProfileCell */ = {
+			isa = PBXGroup;
+			children = (
+				21AC59922C2A799C008F79CC /* ProfileTableViewCell.xib */,
+				21AC59912C2A799C008F79CC /* ProfileTableViewCell.swift */,
+			);
+			path = ProfileCell;
+			sourceTree = "<group>";
+		};
+		2126C91C2C2D4232004CE86E /* BiodataCell */ = {
+			isa = PBXGroup;
+			children = (
+				21AC59952C2A9FBD008F79CC /* BioDataTableViewCell.swift */,
+				21AC59962C2A9FBD008F79CC /* BioDataTableViewCell.xib */,
+			);
+			path = BiodataCell;
+			sourceTree = "<group>";
+		};
+		2126C91D2C2D4243004CE86E /* NotesCell */ = {
+			isa = PBXGroup;
+			children = (
+				21AC599A2C2A9FE9008F79CC /* NotesTableViewCell.xib */,
+				21AC59992C2A9FE9008F79CC /* NotesTableViewCell.swift */,
+			);
+			path = NotesCell;
+			sourceTree = "<group>";
+		};
+		2126C91E2C2D4288004CE86E /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				21AC59852C297532008F79CC /* UserTableViewCell.xib */,
+				21AC59842C297532008F79CC /* UserTableViewCell.swift */,
+			);
+			path = UserCell;
+			sourceTree = "<group>";
+		};
+		2126C91F2C2D80ED004CE86E /* ProfileEntity */ = {
 			isa = PBXGroup;
 			children = (
 				21D3B9992C26AA92000FE264 /* ProfileEntity+CoreDataClass.swift */,
 				21D3B99A2C26AA92000FE264 /* ProfileEntity+CoreDataProperties.swift */,
-				21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */,
+			);
+			path = ProfileEntity;
+			sourceTree = "<group>";
+		};
+		2126C9202C2D8101004CE86E /* UserEntity */ = {
+			isa = PBXGroup;
+			children = (
 				21D3B99C2C26AA92000FE264 /* UserEntity+CoreDataProperties.swift */,
+				21D3B99B2C26AA92000FE264 /* UserEntity+CoreDataClass.swift */,
+			);
+			path = UserEntity;
+			sourceTree = "<group>";
+		};
+		218E7BCC2C25808100CAA2AE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2126C91F2C2D80ED004CE86E /* ProfileEntity */,
+				2126C9202C2D8101004CE86E /* UserEntity */,
 				218E7BD62C258B4B00CAA2AE /* CoreDataManager.swift */,
 				211A35362C257DE200176C5D /* Github_User_Info.xcdatamodeld */,
 			);
@@ -248,8 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				211A35312C257DE200176C5D /* UserListViewController.swift */,
-				21AC59842C297532008F79CC /* UserTableViewCell.swift */,
-				21AC59852C297532008F79CC /* UserTableViewCell.xib */,
+				2126C91E2C2D4288004CE86E /* UserCell */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -258,12 +309,9 @@
 			isa = PBXGroup;
 			children = (
 				218E7BCD2C2580E100CAA2AE /* UserProfileDetailViewController.swift */,
-				21AC59912C2A799C008F79CC /* ProfileTableViewCell.swift */,
-				21AC59922C2A799C008F79CC /* ProfileTableViewCell.xib */,
-				21AC59962C2A9FBD008F79CC /* BioDataTableViewCell.xib */,
-				21AC59952C2A9FBD008F79CC /* BioDataTableViewCell.swift */,
-				21AC59992C2A9FE9008F79CC /* NotesTableViewCell.swift */,
-				21AC599A2C2A9FE9008F79CC /* NotesTableViewCell.xib */,
+				2126C91B2C2D4206004CE86E /* ProfileCell */,
+				2126C91C2C2D4232004CE86E /* BiodataCell */,
+				2126C91D2C2D4243004CE86E /* NotesCell */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

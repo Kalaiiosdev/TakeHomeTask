@@ -1,10 +1,3 @@
-//
-//  UserProfileDetailViewController.swift
-//  Github User Info
-//
-//  Created by Ram on 21/06/24.
-//
-
 import UIKit
 
 class UserProfileDetailViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, NotesTableViewCellDelegate {
@@ -101,14 +94,26 @@ class UserProfileDetailViewController: UIViewController,UITableViewDataSource,UI
         // Update the view model with the new notes
         if let username = userName {
             viewModel.saveNotes(username: username, note: notes)
-            showNotesSavedAlert()
+            showNotesSavedAlertAndNavigateBack()
         }
     }
     
-    func showNotesSavedAlert() {
-        let alertController = UIAlertController(title: "Success", message: "Your notes have been saved.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+   
+        func showNotesSavedAlertAndNavigateBack() {
+                let alertController = UIAlertController(title: "Success", message: "Your notes have been saved.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+                    self?.navigationController?.popViewController(animated: true)
+                }
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+            }
+    
+    func saveNotes() {
+        // Your save logic here
+        
+        // After saving successfully, show alert and navigate back
+        showNotesSavedAlertAndNavigateBack()
     }
-}
+
+        }
+
